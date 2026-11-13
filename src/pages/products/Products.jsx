@@ -45,8 +45,8 @@ function ProductImport({ cats, items, onImport }) {
       const n = (key, fallback, ...aliases) => { const v = val(key, ...aliases); return v === '' ? fallback : Number(v) }
       const price = n('selling_price', NaN, 'price')
       if (!name) errors.push(`Row ${rowNum}: name zaroori hai`)
-      if (!category || !catMap.has(category.toLowerCase())) errors.push(`Row ${rowNum}: category '${category || '(blank)'}' existing category se match nahi hui`)
-      if (!Number.isFinite(price) || price <= 0) errors.push(`Row ${rowNum}: selling_price 0 se zyada hona chahiye`)
+      if (!category) errors.push(`Row ${rowNum}: category zaroori hai`)
+      if (!Number.isFinite(price) || price < 0) errors.push(`Row ${rowNum}: selling_price zero ya usse zyada hona chahiye`)
       if (sku && (skuSet.has(sku.toLowerCase()) || seen.has(sku.toLowerCase()))) errors.push(`Row ${rowNum}: SKU '${sku}' duplicate hai`)
       if (sku) seen.add(sku.toLowerCase())
       const stock = n('stock_quantity', 0, 'stock'); const gst = n('gst_rate', 18, 'gst'); const mrp = n('mrp', price)
@@ -58,18 +58,18 @@ function ProductImport({ cats, items, onImport }) {
       }
       if (mrp < price) errors.push(`Row ${rowNum}: mrp selling_price se kam nahi ho sakta`)
       const bool = (key, fallback) => { const v = val(key).toLowerCase(); return v ? ['true', '1', 'yes', 'haan'].includes(v) : fallback }
-      return { name, sku, category_id: catMap.get(category.toLowerCase()), brand: val('brand'), description: val('description'), selling_price: price, mrp, cost_price: n('cost_price', 0), stock_quantity: stock, low_stock_threshold: n('low_stock_threshold', 5), unit: val('unit') || 'pcs', gst_rate: gst, hsn_code: val('hsn_code'), warranty_months: n('warranty_months', 0), tags: val('tags').split(/[;,]/).map((t) => t.trim()).filter(Boolean), is_active: bool('is_active', true), is_featured: bool('is_featured', false) }
+      return { name, sku, category_id: catMap.get(category.toLowerCase()), category_name: category, brand: val('brand'), description: val('description'), selling_price: price, mrp, cost_price: n('cost_price', 0), stock_quantity: stock, low_stock_threshold: n('low_stock_threshold', 5), unit: val('unit') || 'pcs', gst_rate: gst, hsn_code: val('hsn_code'), warranty_months: n('warranty_months', 0), tags: val('tags').split(/[;,]/).map((t) => t.trim()).filter(Boolean), is_active: bool('is_active', true), is_featured: bool('is_featured', false) }
     })
     setPreview({ rows, errors })
   }
   return <div className="card mb-4 space-y-3">
-    <div className="flex flex-wrap items-center justify-between gap-2"><div><h2 className="font-semibold">Excel se products add karein</h2><p className="text-xs text-ink2">Template CSV Excel mein kholkar bharein, phir CSV format mein save karke upload karein.</p></div><button className="btn btn-ghost" onClick={() => downloadFile('products-template.csv', '\uFEFF' + toCSV(importTemplate))}><FileSpreadsheet size={16} />Template download</button></div>
+    <div className="flex flex-wrap items-center justify-between gap-2"><div><h2 className="font-semibold">Excel se products add karein</h2><p className="text-xs text-ink2">CSV upload karein. Missing categories automatic banengi; selling price zero reh sakti hai.</p></div><button className="btn btn-ghost" onClick={() => downloadFile('products-template.csv', '\uFEFF' + toCSV(importTemplate))}><FileSpreadsheet size={16} />Template download</button></div>
     <label className="btn btn-ghost w-fit cursor-pointer"><Upload size={16} />CSV upload karein<input type="file" accept=".csv,text/csv" className="hidden" onChange={(e) => { const file = e.target.files?.[0]; if (file) parseFile(file); e.target.value = '' }} /></label>
     {filename && <p className="text-sm">{filename} · {preview?.rows.length || 0} rows</p>}
     {preview && <>
       {preview.errors.length > 0 && <div className="max-h-36 overflow-auto rounded-lg bg-danger/10 p-3 text-sm text-danger"><b>{preview.errors.length} galtiyan — import nahi hoga:</b><ul className="ml-5 list-disc">{preview.errors.slice(0, 20).map((e, i) => <li key={i}>{e}</li>)}</ul>{preview.errors.length > 20 && <p>Baaki galtiyan bhi fix karein.</p>}</div>}
       {!preview.errors.length && <p className="text-sm text-ok">{preview.rows.length} products sahi hain, import ke liye ready.</p>}
-      {!!preview.rows.length && <TableWrap><table className="tbl"><thead><tr><th>Naam</th><th>SKU</th><th>Category</th><th className="r">Price</th><th className="r">Stock</th></tr></thead><tbody>{preview.rows.slice(0, 10).map((r, i) => <tr key={i}><td>{r.name}</td><td>{r.sku || 'Auto'}</td><td>{cats.find((c) => c.id === r.category_id)?.name}</td><td className="r">{inr(r.selling_price)}</td><td className="r">{r.stock_quantity}</td></tr>)}</tbody></table></TableWrap>}
+      {!!preview.rows.length && <TableWrap><table className="tbl"><thead><tr><th>Naam</th><th>SKU</th><th>Category</th><th className="r">Price</th><th className="r">Stock</th></tr></thead><tbody>{preview.rows.slice(0, 10).map((r, i) => <tr key={i}><td>{r.name}</td><td>{r.sku || 'Auto'}</td><td>{cats.find((c) => c.id === r.category_id)?.name || r.category_name}</td><td className="r">{inr(r.selling_price)}</td><td className="r">{r.stock_quantity}</td></tr>)}</tbody></table></TableWrap>}
       <button className="btn btn-primary" disabled={!!preview.errors.length || !preview.rows.length || onImport.isPending} onClick={async () => { await onImport.mutateAsync([preview.rows]); setPreview(null); setFilename('') }}><Upload size={16} />{preview.rows.length} products import karein</button>
     </>}
   </div>
@@ -148,7 +148,7 @@ export function Products() {
 
 const schema = z.object({
   name: z.string().min(2, 'Product ka naam zaroori hai'), sku: z.string().optional(), category_id: z.string().min(1, 'Category chunein'), brand: z.string().optional(), description: z.string().optional(),
-  cost_price: z.coerce.number().min(0).optional(), selling_price: z.coerce.number({ invalid_type_error: 'Price daalein' }).positive('Selling price zaroori hai'), mrp: z.coerce.number().min(0).optional(),
+  cost_price: z.coerce.number().min(0).optional(), selling_price: z.coerce.number({ invalid_type_error: 'Price daalein' }).min(0, 'Price zero ya usse zyada hona chahiye'), mrp: z.coerce.number().min(0).optional(),
   stock_quantity: z.coerce.number().int().min(0), low_stock_threshold: z.coerce.number().int().min(0), unit: z.string(), warranty_months: z.coerce.number().int().min(0).optional(),
   hsn_code: z.string().optional(), gst_rate: z.coerce.number(), is_active: z.boolean(), is_featured: z.boolean(), tags: z.string().optional(),
 }).refine((d) => !d.mrp || d.mrp >= d.selling_price, { path: ['mrp'], message: 'MRP selling price se kam nahi ho sakta' })
@@ -197,7 +197,7 @@ export function ProductForm() {
           <div className={sec}>
             <div className="grid gap-3 sm:grid-cols-3">
               {canCost && <Field label="Cost price (kharid)" error={errors.cost_price}><input type="number" step="any" className="input" {...register('cost_price')} /></Field>}
-              <Field label="Selling price *" error={errors.selling_price}><input type="number" step="any" className="input" {...register('selling_price')} /></Field>
+              <Field label="Selling price" error={errors.selling_price}><input type="number" step="any" className="input" {...register('selling_price')} /></Field>
               <Field label="MRP" error={errors.mrp}><input type="number" step="any" className="input" {...register('mrp')} /></Field>
               <Field label="Stock kitna hai?" error={errors.stock_quantity}><input type="number" className="input" {...register('stock_quantity')} disabled={!!id} /></Field>
               <Field label="Low stock threshold"><input type="number" className="input" {...register('low_stock_threshold')} /></Field>

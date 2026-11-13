@@ -163,13 +163,22 @@ export function importProducts(rows) {
     if (sku) inFile.add(sku)
   }
   const bid = S().branchId
+  const categoriesByName = new Map(S().categories.map((c) => [c.name.trim().toLowerCase(), c]))
+  const newCategories = []
   const products = rows.map((row, index) => {
     const id = uid('p'); const stock = Number(row.stock_quantity) || 0
-    const product = { ...row, id, sku: row.sku || `NHU-${1001 + S().products.length + index}`, slug: slugify(row.name), deleted: false, branch_stock: { [bid]: stock }, created_at: now(), images: [], tags: row.tags || [] }
+    const categoryName = String(row.category_name || '').trim()
+    let category = row.category_id ? S().categories.find((c) => c.id === row.category_id) : categoriesByName.get(categoryName.toLowerCase())
+    if (!category && categoryName) {
+      category = { id: uid('c'), name: categoryName, slug: slugify(categoryName), description: '', display_order: S().categories.length + newCategories.length + 1, is_active: true }
+      categoriesByName.set(categoryName.toLowerCase(), category); newCategories.push(category)
+    }
+    const { category_name, ...data } = row
+    const product = { ...data, category_id: category?.id || row.category_id, id, sku: row.sku || `NHU-${1001 + S().products.length + index}`, slug: slugify(row.name), deleted: false, branch_stock: { [bid]: stock }, created_at: now(), images: [], tags: row.tags || [] }
     if (!can(user.role, 'products.cost')) delete product.cost_price
     return product
   })
-  set((s) => ({ products: [...products, ...s.products] }))
+  set((s) => ({ categories: [...s.categories, ...newCategories], products: [...products, ...s.products] }))
   audit('product.import', 'product', products.map((p) => p.id).join(','), `${products.length} products Excel se import hue`)
   return products.length
 }

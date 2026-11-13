@@ -1,0 +1,80 @@
+﻿name,sku,category,brand,selling_price,mrp,cost_price,stock_quantity,low_stock_threshold,unit,gst_rate,hsn_code,warranty_months,description,tags,is_active,is_featured
+Silai Dhaga Cotton,THG001,Dhaga Button,,0,0,0,0,5,pcs,,,,Cotton sewing thread,dhaga;silai;cotton,true,false
+Silai Dhaga Polyester,THG002,Dhaga Button,,0,0,0,0,5,pcs,,,,Polyester sewing thread,dhaga;polyester,true,false
+Silai Dhaga Nylon,THG003,Dhaga Button,,0,0,0,0,5,pcs,,,,Nylon sewing thread,dhaga;nylon,true,false
+Silai Dhaga Reel,THG004,Dhaga Button,,0,0,0,0,5,pcs,,,,Thread reel assorted colors,dhaga;reel,true,false
+Hand Sewing Needle,THG005,Dhaga Button,,0,0,0,0,5,pack,,,,Hand sewing needles,sui;needle,true,false
+Machine Sewing Needle,THG006,Dhaga Button,,0,0,0,0,5,pack,,,,Machine needles,sui;machine,true,false
+Plastic Buttons,THG007,Dhaga Button,,0,0,0,0,5,pack,,,,Plastic buttons assorted sizes,button;plastic,true,false
+Metal Buttons,THG008,Dhaga Button,,0,0,0,0,5,pack,,,,Metal buttons,button;metal,true,false
+Hook And Eye,THG009,Dhaga Button,,0,0,0,0,5,pack,,,,Clothing hooks and eyes,hook;eye,true,false
+Elastic Roll,THG010,Dhaga Button,,0,0,0,0,5,roll,,,,Elastic tape assorted widths,elastic,true,false
+Gas Stove Burner,CHL001,Chulha Parts,,0,0,0,0,2,pcs,,,,Gas stove burner assorted sizes,burner;stove,true,false
+Gas Stove Nozzle,CHL002,Chulha Parts,,0,0,0,0,5,pcs,,,,Gas stove nozzle,jet;nozzle,true,false
+Gas Stove Jet,CHL003,Chulha Parts,,0,0,0,0,5,pcs,,,,Brass gas jet assorted sizes,jet;brass,true,false
+Gas Stove Knob,CHL004,Chulha Parts,,0,0,0,0,5,pcs,,,,Gas stove control knob,knob;stove,true,false
+Gas Stove Valve,CHL005,Chulha Parts,,0,0,0,0,2,pcs,,,,Gas stove control valve,valve;stove,true,false
+Gas Stove Pipe,CHL006,Chulha Parts,,0,0,0,0,5,meter,,,,Gas stove connection pipe,pipe;gas,true,false
+Gas Stove Lighter,CHL007,Chulha Parts,,0,0,0,0,5,pcs,,,,Manual gas lighter,lighter,true,false
+Gas Stove Stand,CHL008,Chulha Parts,,0,0,0,0,2,pcs,,,,Gas stove pan support,stand,true,false
+Gas Stove Burner Cap,CHL009,Chulha Parts,,0,0,0,0,5,pcs,,,,Burner cap assorted sizes,burner;cap,true,false
+Gas Stove Rubber Leg,CHL010,Chulha Parts,,0,0,0,0,5,pcs,,,,Gas stove rubber support, rubber;leg,true,false
+Pressure Cooker Gasket,CKR001,Cooker Parts,,0,0,0,0,5,pcs,,,,Cooker gasket assorted litre sizes,gasket;seal,true,false
+Pressure Cooker Whistle,CKR002,Cooker Parts,,0,0,0,0,5,pcs,,,,Pressure cooker whistle,whistle,true,false
+Pressure Cooker Safety Valve,CKR003,Cooker Parts,,0,0,0,0,5,pcs,,,,Safety valve compatible models,safety;valve,true,false
+Pressure Cooker Handle,CKR004,Cooker Parts,,0,0,0,0,5,pcs,,,,Cooker handle assorted models,handle,true,false
+Pressure Cooker Lid Handle,CKR005,Cooker Parts,,0,0,0,0,5,pcs,,,,Lid handle,cooker;handle,true,false
+Pressure Cooker Weight,CKR006,Cooker Parts,,0,0,0,0,5,pcs,,,,Pressure regulator weight,weight;regulator,true,false
+Pressure Cooker Vent Tube,CKR007,Cooker Parts,,0,0,0,0,5,pcs,,,,Vent pipe assorted models,vent;tube,true,false
+Pressure Cooker Rubber Ring,CKR008,Cooker Parts,,0,0,0,0,5,pcs,,,,Rubber sealing ring,ring;rubber,true,false
+Pressure Cooker Lid,CKR009,Cooker Parts,,0,0,0,0,2,pcs,,,,Pressure cooker replacement lid,lid,true,false
+Pressure Cooker Body,CKR010,Cooker Parts,,0,0,0,0,1,pcs,,,,Pressure cooker replacement body,body,true,false
+Torch LED Bulb,TRC001,Torch Parts,,0,0,0,0,5,pcs,,,,Torch LED replacement bulb,led;torch,true,false
+Torch Battery,TRC002,Torch Parts,,0,0,0,0,5,pcs,,,,Torch battery assorted sizes,battery,true,false
+Torch Switch,TRC003,Torch Parts,,0,0,0,0,5,pcs,,,,Torch replacement switch,switch,true,false
+Torch Charger,TRC004,Torch Parts,,0,0,0,0,3,pcs,,,,Torch charging adapter,charger,true,false
+Torch Charging Jack,TRC005,Torch Parts,,0,0,0,0,5,pcs,,,,Charging socket,jack;charging,true,false
+Torch Reflector,TRC006,Torch Parts,,0,0,0,0,5,pcs,,,,Torch reflector,reflector,true,false
+Torch Lens,TRC007,Torch Parts,,0,0,0,0,5,pcs,,,,Torch front glass lens,lens;glass,true,false
+Torch Body,TRC008,Torch Parts,,0,0,0,0,2,pcs,,,,Torch replacement body,body,true,false
+Torch PCB Board,TRC009,Torch Parts,,0,0,0,0,2,pcs,,,,Torch circuit board,pcb;board,true,false
+Torch Spring,TRC010,Torch Parts,,0,0,0,0,10,pcs,,,,Battery contact spring,spring,true,false
+HDPE Tarpaulin,TRP001,Tirpal Panni,,0,0,0,0,2,pcs,,,,HDPE waterproof tarpaulin multiple sizes,hdpe;tirpal,true,false
+PVC Tarpaulin,TRP002,Tirpal Panni,,0,0,0,0,2,pcs,,,,PVC waterproof sheet,pvc;tirpal,true,false
+Plastic Panni Roll,TRP003,Tirpal Panni,,0,0,0,0,2,roll,,,,Plastic sheet roll multiple thicknesses,panni;roll,true,false
+Transparent Plastic Sheet,TRP004,Tirpal Panni,,0,0,0,0,2,meter,,,,Transparent plastic sheet,transparent;sheet,true,false
+Black Plastic Sheet,TRP005,Tirpal Panni,,0,0,0,0,2,meter,,,,Black plastic sheet,black;panni,true,false
+White Plastic Sheet,TRP006,Tirpal Panni,,0,0,0,0,2,meter,,,,White plastic sheet,white;panni,true,false
+Green Tarpaulin,TRP007,Tirpal Panni,,0,0,0,0,2,pcs,,,,Green waterproof tarpaulin,green;tirpal,true,false
+Blue Tarpaulin,TRP008,Tirpal Panni,,0,0,0,0,2,pcs,,,,Blue waterproof tarpaulin,blue;tirpal,true,false
+Folding Umbrella,UMB001,Umbrella,,0,0,0,0,2,pcs,,,,Folding rain umbrella,umbrella;folding,true,false
+Long Handle Umbrella,UMB002,Umbrella,,0,0,0,0,2,pcs,,,,Long handle rain umbrella,umbrella;long,true,false
+Kids Umbrella,UMB003,Umbrella,,0,0,0,0,2,pcs,,,,Children rain umbrella,kids;umbrella,true,false
+Umbrella Cloth,UMB004,Umbrella,,0,0,0,0,5,pcs,,,,Umbrella replacement canopy,cloth;canopy,true,false
+Umbrella Handle,UMB005,Umbrella,,0,0,0,0,5,pcs,,,,Umbrella replacement handle,handle,true,false
+Umbrella Rib,UMB006,Umbrella,,0,0,0,0,10,pcs,,,,Umbrella frame ribs,rib;frame,true,false
+Umbrella Runner,UMB007,Umbrella,,0,0,0,0,5,pcs,,,,Umbrella sliding runner,runner,true,false
+Bag Chain Zip,ZIP001,Zip Chain,,0,0,0,0,5,meter,,,,Bag zipper chain assorted lengths,zip;chain,true,false
+Zip Slider Small,ZIP002,Zip Chain,,0,0,0,0,10,pcs,,,,Small zipper slider,slider;zip,true,false
+Zip Slider Large,ZIP003,Zip Chain,,0,0,0,0,10,pcs,,,,Large zipper slider,slider;zip,true,false
+Zip Puller,ZIP004,Zip Chain,,0,0,0,0,10,pcs,,,,Zipper pull tab,puller,true,false
+Nylon Zip,ZIP005,Zip Chain,,0,0,0,0,5,meter,,,,Nylon zipper chain,nylon;zip,true,false
+Metal Zip,ZIP006,Zip Chain,,0,0,0,0,5,meter,,,,Metal zipper chain,metal;zip,true,false
+Plastic Zip,ZIP007,Zip Chain,,0,0,0,0,5,meter,,,,Plastic zipper chain,plastic;zip,true,false
+Zip Stopper,ZIP008,Zip Chain,,0,0,0,0,10,pcs,,,,Zipper end stopper,stopper,true,false
+Gas Regulator,GAS001,Gas Repairing,,0,0,0,0,2,pcs,,,,Domestic LPG regulator compatible type,regulator;lpg,true,false
+Gas Rubber Pipe,GAS002,Gas Repairing,,0,0,0,0,5,meter,,,,LPG compatible gas hose,pipe;gas,true,false
+Gas Hose Clamp,GAS003,Gas Repairing,,0,0,0,0,10,pcs,,,,Gas hose clamp,clamp,true,false
+Gas Connector,GAS004,Gas Repairing,,0,0,0,0,5,pcs,,,,Gas connection fitting,connector,true,false
+Gas Lighter,GAS005,Gas Repairing,,0,0,0,0,5,pcs,,,,Kitchen gas lighter,lighter,true,false
+Gas Burner Assembly,GAS006,Gas Repairing,,0,0,0,0,2,pcs,,,,Gas burner assembly,burner;assembly,true,false
+Brass Gas Jet,GAS007,Gas Repairing,,0,0,0,0,10,pcs,,,,Brass gas jet assorted specifications,brass;jet,true,false
+Rubber Washer,GAS008,Gas Repairing,,0,0,0,0,10,pcs,,,,Gas fitting rubber washer,washer;rubber,true,false
+Screwdriver Set,TOO001,Repairing Tools,,0,0,0,0,2,set,,,,Repair screwdriver set,tool;screwdriver,true,false
+Combination Plier,TOO002,Repairing Tools,,0,0,0,0,2,pcs,,,,Combination plier,plier,true,false
+Adjustable Spanner,TOO003,Repairing Tools,,0,0,0,0,2,pcs,,,,Adjustable spanner,spanner,true,false
+Wire Cutter,TOO004,Repairing Tools,,0,0,0,0,2,pcs,,,,Wire cutting plier,cutter,true,false
+Soldering Iron,TOO005,Repairing Tools,,0,0,0,0,2,pcs,,,,Electric soldering iron,soldering;iron,true,false
+Solder Wire,TOO006,Repairing Tools,,0,0,0,0,5,roll,,,,Soldering wire,solder;wire,true,false
+Insulation Tape,TOO007,Repairing Tools,,0,0,0,0,5,roll,,,,Electrical insulation tape,tape;electrical,true,false
+Nuts Bolts Washers,TOO008,Repairing Tools,,0,0,0,0,10,pack,,,,Assorted nuts bolts and washers,hardware;fasteners,true,false
