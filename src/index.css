@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body { @apply bg-cream text-charcoal font-sans antialiased; }
+h1.page-title { @apply font-serif; }
+.num { font-variant-numeric: tabular-nums; }
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition disabled:opacity-50 min-h-[40px]; }
+.btn-primary { @apply bg-brass text-white hover:bg-brass-hover; }
+.btn-dark { @apply bg-charcoal text-cream hover:bg-black; }
+.btn-ghost { @apply border border-line bg-surface text-charcoal hover:bg-cream; }
+.btn-danger { @apply bg-danger text-white hover:opacity-90; }
+.input { @apply w-full rounded-lg border border-line bg-white px-3 py-2 text-sm outline-none focus:border-brass focus:ring-1 focus:ring-brass min-h-[40px]; }
+.label { @apply mb-1 block text-xs font-medium text-ink2; }
+.err { @apply mt-1 text-xs text-danger; }
+.card { @apply rounded-xl border border-line bg-surface p-4; }
+table.tbl { @apply w-full text-sm; }
+.tbl th { @apply sticky top-0 bg-cream px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink2 whitespace-nowrap; }
+.tbl td { @apply px-3 py-2 border-t border-line whitespace-nowrap; }
+.tbl tbody tr:hover { background: #F7F3EC; }
+.tbl .r { text-align: right; font-variant-numeric: tabular-nums; }
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .print-area { border: none !important; }
+}
